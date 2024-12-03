@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>회원가입</title>
+</head>
+<body>
+	<h1>test4.html - form태그</h1>
+	<form action="test_result.html">
+	
+	<fieldset><legend><h4>회원가입</h4></legend>
+	<input type="text" placeholder="아이디" name="id"><br>
+	<input type="password" placeholder="비밀번호" name="pw"><br>
+	<input type="email" placeholder="이메일" name="em">
+	<select>
+	<option disabled>이메일을 선택하세요</option>
+	<option>naver.com</option>
+	<option>gmail.com</option>
+	<option>daum.com</option>
+	<option>nate.com</option>
+	</select>
+	</fieldset>
+	
+	<fieldset>
+	<legend><h4>개인정보</h4></legend>
+	<input type="text" placeholder="이름" name=nm><br>
+	<input type="text" value="생년월일" disable="readonly">
+	<input type="date" name=dt><br> <!--date는 placeholder 입력이 안되네-->
+	<input type="radio" name=se id=male><label for=male>남자</label>
+	<!--그룹화를 해줘야함 각항목들의 name속성값 동일하게 해야 중복체크 안됨-->
+	<input type="radio" name=se id=female><label for=female>여자</label><br>
+	<textarea row="5" cols="30" placeholder="설명" name=mm></textarea>
+	<!--radio 또는 checkbox 등 선택시 정확히 아이콘을 클릭하지 않아도 선택이 되게끔
+	<label> 태그를 사용하여 텍스를 감싼 후 <label> 태그 내의 for 속성으로 이름을 지정한뒤
+	라디오버튼 등의 태그에 id속성으로 동일한 이름을 지정
+	id를 약간 name이랑 좀 다른듯
+	<checked> 미리 선택한걸 보여주는거
+	-->
+	
+	</fieldset>
+	<fieldset>
+	<legend><h4>파일 업로드</h4></legend>
+	<input type="file">
+	</fieldset>
+	
+	<br>
+	<input type="submit" value="가입하기">
+	<input type="reset" value="새로작성">
+	
+	</form>
+	
+	
+</body>
+</html>
+
+	<!--form 태그
+	사용자와 웹어플리케이션(사이트)간의 상호작용이 가능하도록 해주는 태그(기술)
+	사용자로부터 입력하는 데이터 형식을 제공
+	입력된 데이터를 다른 페이지로 전송하는 역할을 수행하는 태그
+	전송되는 데이터는 서버측(JSP등 백엔드)에서 처리할 수 있음
+	<form></form>형식으로 사용하며 시작태그와 끝태그 사이에 또다른 폼사용 불가
+	
+	<form 태그 내부에서 사용 가능한 입력 양식 태그
+	
+	1. <input type="text">; 사용자로부터 텍스트 한줄 입력받는 속성
+	2. <input type="number">; 사용자로부터 숫자를 입력받는 속성
+	3. <input type="password">; 사용자로부터 텍스트 한줄 입력 받는 속성(데이터숨김)
+	4. <input type="checkbox">; 사용자로부터 복수개의 항목을 체크하도록 하는 속성
+	5. <input type="radio">; radio 출력 시 ㅁ표시 > 복수 체크 가능 / 체크해제 안됨
+	6. <input type="date">; 사용자로부터 날짜를 선택하도록 하는 속성(캘린더 선택 또는 입력 가능)
+	7. <input type="button"> 클릭 동작을 받도록 하는 속성(동작은 별도의 기능 연결 필요)
+	8. <input type="submit"> 버튼과 생김새 동일하나 <form> 태그내의 입력 항목들을
+	action 속성에 지정된 위치로 전송 및 이동하는 역할
+	9. <input type="reset"> 버튼과 생김새는 동일하나 태그내의 입력 항목들을 초기화
+	-------------------------------
+	10. <select><option></option></select> 항목 선택
+	11. <textarea></textarea> 여러줄을 입력 받을 수 있는 태그
+	
+	<fieldset> 태그를 사용하여 입력 항목에 대한 시작적으로 그룹화 가능
+	<fieldset> 태그를 내에 <legend>태그를 사용하여 그룹화된 항목의 제목 표시 가능
+	<placeholder> 태그는 입력창에 샘플로 보여지는거
+	<value> 속성 지정시 입력값을 미리 설정가능
+	name 속성 지정 시 데이터 전송시 사용할 이름 지정 가능 <name="예시로 아이디">
+	readonly 속성 지정 시 해당 입력창 잠금
+	disabled 속성 지정시 입력창 비활성화
+	-->

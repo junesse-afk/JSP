@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+let myTimer;
+
+window.onload = function(){
+	document.querySelector("#btnShow").onclick=showTimer;
+	document.querySelector("#btnRemove").onclick=removeTimer;
+	document.querySelector("#btnStart").onclick=function () {
+		showTimer();
+		
+		// 기본문법 : setInterval(함수명, 반복주기);
+		// => 반복주기는 밀리초 단위 지정
+// 		setInterval(showTimer,1000); // 1초 간격으로 showTimer 자동으로 호출
+		//------------------------------------------------------
+// 		setInterval(function(){
+// 			document.querySelector("#timer").innerHTML = "<h3>" + new Date() + "</h3>";
+// 		}, 1000);
+		
+		//------------------------------------------------------
+		// setInterval() 함수가 호출되면 해당 함수의 번호(유일한 값)가 리턴됨
+		// -> 이 값을 활용하여 setInterval() 함수에 의해 반복되는 작업 중지 가능
+		
+		setInterval(function(){
+			document.querySelector("#timer").innerHTML = "<h3>" + new Date() + "</h3>";
+		}, 1000);
+		
+	};
+// 		document.querySelector('#btnStop').onclick = function(){
+// 		stopTimer();
+// 	};
+}
+
+function stopTimer () {
+	// 현재 실행중인 setInterval() 함수 기능을 종료(중지)
+	// => 이때, 전달인자로 반복중인 setInterval()함수 지정(유일한 값 지정)
+	// 따라서, 미리 리턴받아 보관하고 있던 myTimer 변수값 전달
+	clearInterval(myTimer);
+}
+
+function showTimer () {
+	let now = new Date();
+	document.querySelector("#timer").innerHTML = "<h3>" + now + "</h3>";
+}
+
+function removeTimer() {
+	document.querySelector("#tiemr").innerHTML = "";
+}
+
+
+</script>
+
+
+</head>
+<body>
+
+	
+	<div id="timer"></div>
+	<input type="button" value="타이머 표시" id="btnShow">
+	<input type="button" value="타이머 삭제" id="btnRemove"><br>
+	<input type="button" value="타이머 시작" id="btnStart">
+	<input type="button" value="타이머 종료" id="btnStop">
+	<hr>
+	<img src="../images/1.jpg" id="img" width="300" height="200">
+	
+	<script type="text/javascript">
+	// [ 이미지 슬라이드 구현 ]
+	// 1. 사용할 이미지 파일 (1.jpg, 2.jpg, 3.jpg)을 배열에 저장
+	let imgArr = ["1.jpg", "2.jpg", "3.jpg"];
+	
+	// 2. 배열의 인덱스로 활용할 변수 선언
+	let index = 0;
+	
+	// 3. 익명함수 정의하여 2초마다 주기적으로 호출되도록 setInterval()함수 활용
+	setInterval(function(){
+		
+		// 4. 이미지 교체
+		// => id선택자 "img"인 요소 객체의 src 속성값 변경
+		// => 이때, 배열에 이미지 목록이 저장되어 있으며 인덱스 변수(index)를 활용
+		document.querySelector("img").src ="../images/" + imgArr[index];
+		// 5. 인덱스 번호 1증가
+		index++;
+		
+		// 6. 마지막 이미지까지 표시 후 다시 처음 이미지로 돌아가기
+		// => 마지막 이미지의 인덱스는 변할 수 있으므로 배열명.length 활용
+		
+		if (index == imgArr.length) {
+			//처음 이미지로 돌아가기 위해 인덱스 0으로 초기화
+			index = 0;
+		}
+		
+	}, 2000);
+	
+	
+	</script>
+
+</body>
+</html>

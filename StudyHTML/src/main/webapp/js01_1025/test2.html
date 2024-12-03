@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+
+/* [자바스크립트 변수]
+-데이터 저장 공간
+-변수 선언 기본 문법 : 변수선언 키워드 변수명 = 값;
+- 다만, 자바와 달리 데이터타입을 별도로 지정하지 않고 var 또는 (let 또는 const)-> 몇버전 이상 적용이 가능함 ES6에서 사용?로 선언
+
+- 변수명은 자바 식별자 작성 규칙과 거의 동일한 규칙 적용 (ex 1a = 사용 안됨, $_asd = 사용가능 등등)
+
+- 자바스크립트에서 사용되는 데이터 타입은 문자(=문자열) string, 숫자 number, 논리 boolean, 특수값 null, undefined
+  > 변수 선언 및 값 할당 시 자동으로 해당 변수의 데이터 타입 결정됨
+
+- 변수 또는 데이터의 데이터타입 확인 방법 : typeof 키워드 사용
+  > 기본문법 1) typeof 변수명 또는 typeof 데이터
+  > 기본문법 2) typeof(변수명) 또는 typeof(데이터)
+
+*/
+
+
+/* 변수 선언 기초
+  var num; -> 변수 num 선언
+  let num2; -> 변수 num2 선언
+  const num3; -> 이클립스 상에서 또는 웹브라우저 실행시 오류 발생
+`
+  * 변수 선언 및 데이터 데이터 저장
+  var str; -> 변수 str선언 (변수초기화는 수행하지 않음)
+  
+*/
+
+var str;
+  str="a";
+  
+  console.log("str타입 ="+typeof(str));
+  
+ var num = 20;
+ console.log("num ="+ num, "num"+typeof(num));
+
+ console.log("num=" + num +", num = "+typeof(num));
+ 
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

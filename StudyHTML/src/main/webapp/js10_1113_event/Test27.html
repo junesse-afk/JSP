@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+function printRadio() {
+	let radio = document.fr.rb;
+	console.log(radio);
+	
+	/* if (!radio[0].checked && !radio[1].checked) {
+		alert("라디오 버튼 선택")
+	} */
+	
+	if (radio.value=='') {
+		alert("라디오 버튼 선택");
+	}
+	
+	
+	//만약, 두 라디오버튼 중 아무것도 선택하지 않았을 경우
+	//라디오 버튼 항목 선택 필수 출력
+}
+
+function printCheckbox() {
+	let checkbox = document.fr.cb;
+	let isChecked = false;
+	for(let i = 0; i<checkbox.length; i++) {
+		if (checkbox[i].checked){
+		isChecked = true;
+		break;
+		}
+	}
+	if (!isChecked) {
+		alert("체크박스 항목 하나 이상 선택 필수")
+	}
+}
+
+
+	window.onload = function () {
+		
+		let cbb = document.querySelector("#cball");
+		cbb.addEventListener("change", function (e) {
+		
+//	 		e.target.checked // cbAll의 체크상태를 가져오는 코드
+			// 쿼리셀렉터는 아이디만 가져올 수 있음 지금은
+			// 전체선택 체크박스 상태에 따라 개별 체크박스 체크 상태를 일괄 변경
+			// => 전체선택 체크 시 3개의 체크박스 체크 상태를 모두 체크(true)로 변경하고
+			//    아니면 3개의 체크박스 체크 상태를 모두 체크 해제(fasle)로 변경	
+			
+		let cba = document.fr.cb; //네임으로 가져오는 법
+		let checked = false;
+			for (let i = 0; i<cba.length; i++){
+				if (e.target.checked){
+					cba[i].checked=true;
+				}
+				else {
+					cba[i].checked=false;
+				}
+			}
+		});
+	}
+
+	//for (let i = 0; i<cba.length; i++){
+	//cba[i].checked = e.target.checked;
+	
+</script>
+
+
+</head>
+<body>
+	<h1>Test27.html</h1>
+	<!-- name 같은 속성값을 지정하면 그룹화가 되어 하나만 선택가능 required하나만 해도 가능 -->
+	<form action="test27_2.html" name="fr">
+	<input type="radio" id="rb1" name="rb" value="rb값1"><label for=rb1>라디오값1</label>
+	<input type="radio" id="rb2" name="rb" value="rb값2"><label for=rb2>라디오값2</label>
+	<input type="button" name="rb" value="라디오버튼 선택완료" onclick="printRadio()"> 
+	<hr>
+	<br>
+	<!-- required 줄거면 다주야되지만 강제가 되어 무쓸모 -->
+	<input type="checkbox" name="cb" value="체크박스값1"> 체크박스값1
+	<input type="checkbox" name="cb" value="체크박스값2"> 체크박스값2
+	<input type="checkbox" name="cb" value="체크박스값3"> 체크박스값3
+	<input type="checkbox" id="cball" name="all_check"> 전체선택
+	<input type="button" value="체크박스 선택완료" onclick="printCheckbox()">
+	
+	<br>
+	<input type="submit" value="전송">
+	
+	
+	
+	
+	</form>
+
+
+</body>
+</html>

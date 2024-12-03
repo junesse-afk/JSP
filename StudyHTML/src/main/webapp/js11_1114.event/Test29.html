@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+// 	let img = document.querySelector('#img');
+// 	console.log(img);
+	
+	
+	// 자바스크립트 코드가 실행되는 시점에 body영역의 모든 요소들은 아직 로딩되기 전
+	// 해당 요소를 객체로 리턴하는 리턴하는 메서드 호출
+	// 해결책 1. 태그의 on 이벤트를 지정하고 해당 이벤트에서 함수를 호출하고 코드를 실행하는 방법
+	// 함수가 호출되기 위해 버튼 등에서 onXXX 이벤트가 동작하려면 해당 요소는 이미
+	// 문서 내에서 로딩이 완료된 후 
+	
+	
+	function changeImg() {
+		let img = document.querySelector('#img');
+		console.log(img);
+		// -> goekd #img 객체가 로딩된 상태에서 자바스크립트에서 접근 가능한 상태
+		img.src="../images/2.jpg";
+	}
+
+	//해결책 4. window. onload 속성을 통해 load이벤트 지정시 문서로딩이 끝난 후 특정 코드 실행가능
+	//이벤트 함수 전달 시 함수 호출 코드 형태인 소괄호는 반드시 제거
+	// 따라서 함수명만 전다랗면 이벤트가 발생할 떄 해당 함수를 찾아 실행
+	window.onload=changeImg;
+
+
+</script>
+
+</head>
+
+<body>
+<!-- <body onload="chageImg()"> -->
+<!-- 	/* 해결책3. 바디에 onload 이벤트를 지정하여 함수 호출하는 코드 기술하기 */ -->
+	<h1>test29.html</h1>
+	<img src="..\images\1.jpg" id="img" width="200" height="150">
+	<input type="button" value="이미지교체" onclick="changeImg()">
+<!-- 	해결책 2. 자바스크립트 코드를 해당 태그보다 아래쪽에 기술하여 -->
+<!-- 	태그가 로딩된 후 자바스크립트 코드가 로딩되도록 하기	 -->
+<!-- 	<script type="text/javascript"> -->
+	
+<!-- // 	let img = document.querySelector('#img');
+// 	console.log(img);
+	
+// 	img.src="..\images\3.jpg";
+ -->	
+
+	
+<!-- 	</script> -->
+</body>
+</html>

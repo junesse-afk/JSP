@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://code.jquery.com/jquery-3.7.1.js"></script>
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+
+* 특정 요소에 대한 조작 이벤트
+* - 지정한 대상의 특정 위치에 내용 추가하기
+* 1. append() - 지정한 내용을 '선택자 내부'의 '마지막'에 추가
+* - appendTo() - 함수와 문장 구조의 차이를 제외하면 기능은 동일함
+* - $("선택자").append("추가할 내용")
+* - $("추가할 내용").appendTo("선택자")
+
+  2. prepend() - 지정한 내용을 '선택자 내부'의 '처음'에 추가
+  - prependTo() 함수와 문장 구조의 차이를 제외하면 기능을 동일함
+  * - $("선택자").prepend("추가할 내용")
+  * - $("추가할 내용").prependTo("선택자")
+
+  3. after() - 지정한 내용을 '선택자 요소'의 '뒤'에 삽입
+  - insertAfter() 함수와 문장 구조의 차이를 제외하면 기능을 동일함
+  * - $("선택자").after("추가할 내용")
+  * - $("추가할 내용").insertAfter("선택자")
+
+  4. before() - 지정한 내용을 '선택자 요소'의 '앞'에 삽입
+    - insertbefore() 함수와 문장 구조의 차이를 제외하면 기능을 동일함
+  * - $("선택자").before("추가할 내용")
+  * - $("추가할 내용").insertbefore("선택자")
+*
+*
+*/
+
+$(function(){
+	//1. append() 메서드 [ ajax ]
+	$("#inside_append").append("<div>***** append()로 추가한 div******</div>");
+
+	// 적용된 결과를 확인을 이해 "#result" 영역에 "#wrap_append" 영역 내용 전체 출력
+// 	$("#result1").text($("#wrap_append").html());
+	
+	$("#inside_prepend").prepend("<div>***** prepend()로 추가한 div******</div>");
+	
+	$("#inside_after").after("<div>***** after()로 추가한 div******</div>");
+	
+	$("#inside_before").before("<div>***** before()로 추가한 div******</div>");
+	
+})
+
+
+
+
+
+</script>
+
+
+</head>
+<body>
+
+	<h1>test3.html</h1>
+	<div id="wrap">
+		<div id="wrap_append">
+			<div id="inside_append">
+				<div>div 태그-1</div>
+				<div>div 태그-2</div>
+			</div>
+		</div>
+	<hr>
+	<!-- ============================== -->
+		<div id="wrap_prepend">
+			<div id="inside_prepend">
+				<div>div 태그-3</div>
+				<div>div 태그-4</div>
+			</div>
+		</div>
+	<hr>
+	<!-- ============================== -->
+		<div id="wrap_after">
+			<div id="inside_after">
+				<div>div 태그-5</div>
+				<div>div 태그-6</div>
+			</div>
+		</div>
+	<hr>
+	<!-- ============================== -->
+				<div id="wrap_before">
+			<div id="inside_before">
+				<div>div 태그-7</div>
+				<div>div 태그-8</div>
+			</div>
+		</div>
+	<hr>
+	<!-- ============================== -->
+	</div>
+	
+	<div id="result1"></div>
+	<hr>
+	<div id="result2"></div>
+	<hr>
+	<div id="result3"></div>
+	<hr>
+	<div id="result4"></div>
+	<hr>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function changeColor (color) {
+	let a = document.querySelector('#name').style.background = color;
+	de
+}
+
+function checkid(){
+	// id 선택자가 id1인 텍스트 박스의 vaule 속성값을
+	// span 태그 (id 선택자 "checkIdResult1")에 단순 텍스트로 출력
+	let id = document.querySelector('#id1').value;
+	let span = document.querySelector('#checkIdResult1');
+	span.innerText = id;
+	
+	// 만약, 입력 받은 아이디의 문자열 길이가 4글자 미만이거나 16글자를 초과하면
+	// 4~16자 까지만 입력가능합니다! 출력 글자색 레드
+	// 아니면 입력받은 아이디가 admin일 경우 사용 불가능한 아이디 출력 글자색 레드
+	// 모두 아니면 사용가능한 아이디 출력 글자색 그린
+	
+	if (id.length < 4 || id.length > 16) {
+		span.innerText = "4~16자 까지만 입력 가능합니다!";
+		span.style.color = "RED";
+	} else if (id == 'admin') {
+		span.innerText = "사용 불가능한 아이디입니다!";
+		span.style.color = "RED";
+	} else {
+		span.innerText = "사용 가능한 아이디입니다";
+		span.style.color = "GREEN";
+	}
+}
+
+function checkid2(elem){
+	
+	console.log("change 이벤트 동작");
+	
+	//id 선택자 id2 요소를 탐색할 필요없이 elem 변수를 그대로 활용
+	let id = elem.value;
+	let span = document.querySelector('#checkIdResult2');
+	span.innerText = id;
+	
+	
+	
+	if (id.length < 4 || id.length > 16) {
+		span.innerText = "4~16자 까지만 입력 가능합니다!";
+		span.style.color = "RED";
+	} else if (id == 'admin') {
+		span.innerText = "사용 불가능한 아이디입니다!";
+		span.style.color = "RED";
+	} else {
+		span.innerText = "사용 가능한 아이디입니다";
+		span.style.color = "GREEN";
+	}
+}
+</script>
+
+</head>
+<body>
+	<h1>Test25.html</h1>
+	<!-- focus 이벤트는 대상과 상호작용이 가능한 상태, blur 이벤트는 상호작용이 불가능한 상태 -->
+	<!-- focus 위치시 "SKYBLUE" -->
+	<!-- focus 해제 시 색상 없애기 -->
+	이름 : <input type="text" id="name" onfocus="changeColor('SKYBLE')" onblur="changeColor('')">
+	<hr>
+	<!-- 입력 받은 아이디를 검증하여 검증결과를 span 영역에 출력하기 -->
+	<!-- keyup 이벤트 : 대상 요소에 포커스가 있을 때 '키보드를 눌렀다 떼면' 동작 -->
+	아이디 : <input type="text" id="id1" onkeyup="checkid()">
+	<span id="checkIdResult1"></span>
+	<hr>
+	<!-- change 이벤트 : 대상 요소에 포커스가 있을 때 포커스가 해제되면 동작 -->
+	<!-- 단 포커스 해제 시점에 기존의 내용과 다른 내용일 경우에만 이벤트 동작-->
+	<!-- checkId2()함수 호출 시 현재 텍스트박스 input 태그 요소를 객체로 전달하기 위해 this 활용 -->
+	아이디2 : <input type="text" id="id2" onchange="checkid2(this)">
+	<span id="checkIdResult2"></span>
+	<hr>
+</body>
+</html>

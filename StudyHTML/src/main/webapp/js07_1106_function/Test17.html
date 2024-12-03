@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+function btnClick() {
+	alert('버튼5 클릭');
+}
+
+function btnClick2(msg) {
+	alert(msg);
+}
+
+
+</script>
+
+</head>
+<body>
+<!--
+[ 이벤트(EVENT) ]
+- 어떤 대상에 어떤 일이 발생하는 것 
+
+- 웹에서 이벤트란? 어떤 대상 요소에 사용자가 특정 액션을 취하는 것
+ 	ex) 버튼 클릭, 텍스트 입력, 마우스 이동 등
+
+- 이벤트가 발생하면 해당 이벤트에 대한 동작을 처리하도록 하는 것을
+ 	이벤트 처리(EVENT Handling)라고 하고,
+ 	처리를 하기 위한 함수를 이벤트 처리기 (EVENT Handler)
+
+[ 이벤트 처리(EVENT Handling) ]
+- 이벤트가 발생했을 때 특정 작업을 수행하도록 하는 것
+	ex)	버튼 클릭 이벤트 발생시 alert() 함수를 통해 메세지를 표시
+	텍스트 입력 이벤트 발생시 숫자가 입력되었는지 판별
+	이미지에 마우스 오버 이벤트 발생 시 다른 이미지로 전환
+	
+- 이벤트가 등록될 대상 컴포넌트(버튼, 텍스트상자 등의 요소) 태그에 <input type-"password"> <- 컴포넌트
+	onXXX 속성을 사용하여 xxx부분에 이벤트 종류를 지정하고
+	해당 속성의 값으로 자바스크립트 코드(이벤트 핸들러)를 통해 이벤트 처리 수행 가능
+	ex) 버튼 등을 클릭 시 동작할 이벤트 click => onclick으로 등록
+		마우스 특정 대상 위에 가져다 대는 이벤트 : mouseover => onmouseover로 등록
+		=> onXXX 속성의 값으로 자바스크립트 함수(내장함수 포함)를 직접 호출하여 작업 수행 가능
+
+	<특정 태그에 대한 이벤트 등록 기본 문법>
+	<XXX태그 onXXX="자바스크립트함수호출()">
+	<input type="button" onclick="alert("클릭됨!!")">
+ -->
+ 
+ <!--
+ [ HTML 태그에서 버튼 생성 방법 ]
+ 1. <input> 태그의 type="button" 속성 사용 (value 속성을 통해 버튼에 표시할 텍스트 지정)
+ 2. <butoon> 태그 사용(시작 태그와 끝 태그사이에 버튼에 표시할 텍스트 지정)
+ 
+  -->
+
+
+<h1>test17.html - event</h1>
+
+<input type="button"> <!-- 버튼에 텍스트 타입 없음 -->
+<input type="button" value="버튼"> <!-- "버튼"이라는 텍스트가 표시됨 -->
+<button>버튼2</button>
+<hr>
+<!-- 버튼 6개 생성("버튼1~버튼6"까지 텍스트 표시 -->
+<!-- 버튼 클릭시 특정 동작을 수행하려면 "click" 이벤트에 대한 핸들링 필요 -->
+
+<button onclick="alert('버튼1 클릭')">버튼1</button>
+<input type="button" value="버튼2" onclick="alert('버튼2 클릭')">
+<input type="button" value="버튼3" ondblclick="alert('버튼3 클릭')">
+<!-- 하나의 요소(컴포넌트)에 복수개의 이벤트 연결 가능 -->
+<input type="button" value="버튼4" onmouseover="alert('버튼4 오버')"><!-- onmouseout="alert('버튼4 아웃')" -->
+<!-- 버튼 5 클릭시 사용자 정의함수 btnClick()호출 함수 정의 필수! -->
+<input type="button" value="버튼5" onclick="btnClick()">
+<!-- 버튼 6 클릭시 사용자 정의함수 btnClick2()호출 -> 전달인자로 문자열 1개 전달 -->
+<input type="button" value="버튼6" onclick="btnClick2('Hello World!')">
+
+<!-- "클릭 이벤트는 꼭 버튼 요소에서만 동작하는 것이 아니다! -->
+<!-- images 디렉토리의 1.jpg 이미지 표시 (가로200 세로 150 -->
+<img src="../images/1.jpg" width="200" height="150" onclick="alert('이미지클릭')">
+
+<!-- 이미지 마우스 오버 이벤트 changeImg(), mouseout 이벤트에 recoveryImg() 함수 연결 -->
+<!-- 함수 호출 시 전달인자로 자바스크립트 내장객체 event 전달(내장객체는 따로 자세히...)  -->
+<img src="../images/2.jpg" width="200" height="150" onmouseover=
+"changeImg(event)" onmouseout="recoveryImg(event)">
+
+</body>
+</html>

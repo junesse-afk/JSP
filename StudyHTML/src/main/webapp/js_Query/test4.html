@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://code.jquery.com/jquery-3.7.1.js"></script>
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+
+* eq(인덱스)
+* - 선택자를 포함하여 형제자매 요소 탐색 
+* - 인덱스는 0부터 시작하며, 인덱스에 해당하는 순서에 위치한 요소를 가져옴
+* - 음수는 뒤에서부터 탐색
+*
+* atter('HTML속성명')
+* - 선택자에서 해당 속성의 값을 가져오거나 추가
+* - HTML 태그 속성값 자체를 가져오며 상태에 따라 변하지 않음
+* 
+* prop('Javascript속성명')
+* - 선택자에서 해당 속성의 값에 대한 상태를 가져오거나 추가
+* - 값 자체를 다루지 않고 해당 속성의 값에 대한 상태를 true/false 값으로 리턴
+
+*/
+
+$(function () {
+	// h3 태그들 중에 두번째 h3 태그 요소 내의 텍스트 가져오기
+	
+	console.log($("h3").eq(1).text());
+	//-------------------------------------------
+	// 확인 버튼 클릭 이벤트 핸들링
+	// 1. $("#btn").이벤트명(function(){})
+	// => JS) 객체.click = function(){}
+	// 2. $("#btn").on("이벤트명", function(){})
+	// => JS) 객체.addEventLinstener("이벤트명", function(){})
+	
+	$("#btn").click(function() {
+	
+		let attr1 = $("input[type=checkbox]").eq(1).attr("checked");
+		let prop1 = $("input[type=checkbox]").eq(1).prop("checked");
+		let attr2 = $("input[type=checkbox]").eq(2).attr("checked");
+		let prop2 = $("input[type=checkbox]").eq(2).prop("checked");
+		
+		$("#result").html(
+				"attr1 = " + attr1+ ", prop1 = " + prop1 + "<br>"	
+			+	"attr1 = " + attr2+ ", prop1 = " + prop2 + "<br>"
+		);
+		
+		
+	}); //확이버튼 이벤트 끝
+	
+	// #btnOK (readOnly 부여) 요소에 대한 클릭 이벤트
+	$("#btnOk").on("click", function(){
+	// 텍스트 박스(#id) 요소에 읽기 전용 속성 부여
+	// 1) attr() 메서드로 속성 부여 (=속성값 설정)
+		$("#id").attr("readonly","readonly");
+		// => 태그 자체에 리드온니 리드온니 속성 추가되고 읽기 전용 상태로 변경됨
+	
+// 		$("#id").prop("readonly", true);
+		// => 태그 자체에 리드온니 속성 추가되고 읽기 전용 상태로 변경됨
+// 		console.log("prop: " + $("#id").prop("readonly"));
+// 		console.log("attr: " + $("#id").attr("readonly"));
+	});
+	
+	
+	//$("#btnOK").on("click change", function(){}); 두가지 이벤트를 걸 수 있음
+	// #btnReset (readOnly 해제) 요소에 대한 클릭 이벤트
+		$("#btnReset").on("click", function(){
+// 			$("#id").attr("readonly", "");
+			//attr은 속성 해제 불가			
+			$("#id").prop("readonly", false);
+			
+		});
+	
+		// 결론. 걍 prop에 쓰자 단 HTML 값이 필요할때만 attr() 활용
+	
+	
+});
+
+
+</script>
+
+
+
+</head>
+<body>
+	<h1>test4.html</h1>
+	<h3>제목 - 1</h3>
+	<h3>제목 - 2</h3>
+	<hr>
+	<table border="1">
+		<tr>
+			<th><input type="checkbox" id="allcheck"></th>
+			<th>번호</th>
+			<th>이름</th>
+		</tr>
+		<tr>
+			<td><input type="checkbox" id="check" name="check" value="1" checked="checked"></td>
+			<td>1</td>
+			<td>홍길동</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" id="check" name="check" value="2"></td>
+			<td>2</td>
+			<td>이순신</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" id="check" name="check" value="3"></td>
+			<td>3</td>
+			<td>강감찬</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+			<input type="button" value="확인" id="btn"><br>
+			<div id="result">결과 확인 위치</div>
+			</td>
+		</tr>
+	</table>
+	
+	<hr>
+	<input type="text" id="id" name="id"><br>
+	<input type="button" value="readOnly 부여" id="btnOk">
+	<input type="button" value="readOnly 해제" id="btnReset">
+	
+</body>
+</html>

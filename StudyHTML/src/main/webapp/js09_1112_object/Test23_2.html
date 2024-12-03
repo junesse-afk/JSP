@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+/*  
+ * [ document 객체를 사용하여 특정 선택자를 갖는 요소를 선택하는 방법 ]
+ * < 2. document 객체의 querySelector() 또는 querySelectorAll() 메서드 활용 >
+ * - querySelector() - 요소가 1개인 대상에 접근 (주로 id 선택자)
+ *                   단, 요소가 복수개인 대상도 접근 가낭하나 1개의 요소만 리턴됨
+ * 
+ * - querySelectorAll() - 요소가 복수개인 대상에 접근 (주로 class 또는 태그 선택자)
+ *                    복수개의 요소가 LodeList 타입으로 리턴됨 (HTMLCollection 타입과 동일하게 사용가능)
+ *
+ * - 두 메서드에 전달하는 파라미터에 따라 전달하는 전달인자 형태가 달라짐
+ 	1) id 선택자 : 선택자명 앞에 # 기호 붙임 ex. querySelector("#name")
+ 	2) class 선택자 : 선택자명 앞에 . 기호 붙임 ex. querySelector(".header")
+ 	3) 태그 선택자 : 선택자명을 태그명으로 그대로 지정 ex. querySelector("h3")
+ */
+
+ window.onload = function () {
+ 		// id 선택자가 "name"인 태그를 객체로 가져오기
+ 		// => 전달인자로 id 선택자 역시 "#" 활용
+ 		let nameElem = document.querySelector("#name");
+ 		console.log(nameElem);
+ 		
+ 		nameElem.value ="홍길동";
+ 		
+ 		document.querySelector("#header2").style.background = "PINK";
+ /* ------------------------------------------------------------------
+ class 선택자를 통해 단일 또는 복수개의 요소에 접근(. 활용)
+ */		
+
+ 		 document.querySelector(".header3").style.background ="BLUE";
+ 		 //document.querySelector(".header").style.background ="YELLOW";
+ 		 // -> e단, class 선택자가 "header"인 요소가 복수개일 때
+ 		 // 처음 만나는 요소만 리턴되어 첫번쨰 "header" 선택자 요소만 색깔 변경됨
+ 		
+ 		 //document.querySelectorAll(".header3").style.background ="green";
+ 		 // -> 주의! 단일 객체가 아닌 객체의 집합이므로 직접 접근 불가능
+ 		 // -> 반복문을 통해 접근하거나 인덱스 번호를 통해 접근해야함
+ 		
+		let headers = document.querySelectorAll(".header3")
+ 		/* console.log(headers); */
+ 		
+ 		for (let header of headers) {
+ 			header.style.background = "LIME";
+ 		}
+ 		
+ 		// 태그 선택자("h3")를 활용하여 h3태그 요소인 텍스트 색상을 "RED"로 변경
+		let tagsH3 = document.querySelectorAll("h3");
+ 		for (let tag of tagsH3) {
+ 			tag.style.color = "RED";
+ 		}
+ 	
+ 	}
+ 
+
+</script>
+
+</head>
+<body>
+
+	<h1>Test23.html</h1>
+	<input type="text" id="name" placeholder="id 속성값 name">
+	<input type="text" id="name2" placeholder="id 속성값 name2">
+	<hr>
+	<h3 id="header1">Header - 1</h3>
+	<h3 id="header2">Header - 2</h3>
+	<h3 id="header3" class="header3">Header - 3</h3>
+	<h3 id="header4" class="header">Header - 4</h3>
+	<h3 class="header">Header - 5</h3>
+	<h3 class="header">Header - 6</h3>
+
+
+
+</body>
+</html>

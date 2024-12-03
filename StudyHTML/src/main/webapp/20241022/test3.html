@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--표 만들기-->
+<table border="1"><!--테이블 생성 border는 선인듯-->
+	<tr><!--tr은 행 만들기-->
+	<th colspan="4">대한민국</th><!--colspan은 열합치기-->
+		<tr>
+		<th></th><!--th는 볼드처리+ 가운데정렬-->
+		<th width="100">지역</th><!--width는 여백-->
+		<th width="100">인구</th>
+		<th width="100">성별</th>
+		<th>바로가기</th>
+		</tr>
+	<tr><!--td는 볼드처리x-->
+		<th><img src="reply-icon.png" alt=reply-icon.png height="20px" width="20px"></th>
+		<td align="center">서울</td><!--align는 글자 배치인듯-->
+		<td align="center">100</td>
+		<td align="center">남/여</td>
+		<th><a href="http://itwillbs.co.kr">바로가기</a></th>
+	</tr>
+	<tr>
+		<th><img src="reply-icon.png" alt=reply-icon.png height="20px" width="20px"></th>
+		<td align="center">부산</td>
+		<td align="center">50</td>
+		<td align="center">남/여</td>
+		<th><a href="http://itwillbs.co.kr">바로가기</a></th>
+	</tr>
+	<tr>
+		<th><img src="reply-icon.png" alt=reply-icon.png height="20px" width="20px"></th>
+		<td align="center">대구</td>
+		<td align="center">20</td>
+		<td align="center">남/여</td>
+		<th><a href="http://itwillbs.co.kr">바로가기</a></th>
+	</tr>
+</table>
+<hr>
+<table border="1">
+	<tr>
+		<td colspan="4">1</td>
+		<!-- <td colspan="4">2</td>
+		<td colspan="4">3</td>
+		<td colspan="4">4</td>
+	</tr -->
+	<tr>
+		<td rowspan="2">5</td> <!--rowspan은 행 합치기-->
+		<td>6</td>
+		<td>7</td>
+		<td>8</td>
+	</tr>
+	<tr>
+		<!-- <td>9</td> -->
+		<td>10</td>
+		<td>11</td>
+		<td>12</td>
+	</tr>
+</table>
+</body>
+</html>

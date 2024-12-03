@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+function check() {
+	//셀렉트박스의 선택 항목에 접근하려면 셀렉트 박스 요소 객체의 value 속성값 접근
+	// 선택된 항목 옵션태그의 value속성값이 셀렉박스 자체의 value 속성값으로 설정됨
+	let select = document.fr.fruits.value;
+	console.log(select);
+}
+
+function its() {
+	let select1 = document.fr.fruits1.value;
+	let input = document.fr.fruits;
+	
+	
+	if (select1 == ""){
+		input.readOnly = true;
+		debugger;
+	} else {
+		input.readOnly = false;
+		input.value = select1;
+	}
+
+
+}
+
+</script>
+
+</head>
+<body>
+
+	<h1>Test28.html</h1>
+	<form action="test28_2.html" name="fr">
+	<!-- 폼 태그 셀렉트 박스에 required 속성 지정 시 아무것도 선택하지 않아도 submit 동작 -->
+	<!-- 즉, 기본적으로 하나의 항목이 무조건 선택되므로 required 불필요 -->
+	<select name="fruits" required="required">
+	<!-- 사용자로부터 셀렉트 박스 항목을 반드시 직접 선택하도록 하려면
+	첫번째 항목으로 널스트링""을 갖는 항목을 추가,
+	해당 항목이 선택되어 있을 경우에는 항목을 선택하지 않은 것으로 간주
+	 -->
+		<option value="">과일을 선택하세요</option>
+		<option value="apple">사과</option>
+		<option value="banana">바나나</option>
+		<option value="orange">오렌지</option>
+	
+	</select>
+	<input type="button" value="선택값 확인" onclick="check()">
+	<hr>
+	<select name="fruits1" onchange="its()">
+		<option value="">과일을 선택하세요</option>
+		<option value="a1">사과</option>
+		<option value="b1">바나나</option>
+		<option value="o1">오렌지</option>
+	</select>
+	<input type="text" name="frs">
+	
+	<hr>
+	
+	<input type="submit" value="전송">
+	
+	</form>
+
+
+</body>
+</html>

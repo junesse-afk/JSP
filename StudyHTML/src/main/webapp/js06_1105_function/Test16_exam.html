@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	// [ 전달인자 O, 리턴값 O 함수 연습 ]
+	// 1. 정수 2개 (start, end)를 전달 받아
+	// start ~ end까지의 합을 리턴하는 sum() 함수 정의
+	
+	function sum(start, end){
+		let total = 0;
+		for (i=start; i<=end; i++) {
+			total+=i;
+		}
+		return total;
+	}
+		
+	let total = sum(10, 20);
+	document.write("합계 = "+ total+"<br>");
+	
+	
+	
+	// 2. 정수 1개를 전달받아 절대값을 리턴하는 함수 abs() 정의
+	// -> ex -5전달 시 5리턴, 10전달 시 10리턴
+// 	function abs(x) {
+// 		if (x<0) {
+// 			x = -x
+// 		}
+// 		return x;
+		
+// 	}
+// 	document.write(abs(-10));
+	
+	function abs(x) {
+		if (x>0) {
+			x= -x
+		}
+		return x;
+	}
+	document.write(abs(10)+"<br>");
+	
+	
+	// 3. 아이디(id), 패스워드(passwd)를 전달받아 저장되어 있는 아이디, 패스워드와 비교 후 둘 다 일치하면 true리턴, 아니면 false 리턴하는 함수 login()정의
+
+	function login(id, pw) {
+		let dbId = "admin";
+		let dbPasswd = "1234";
+		return id==dbId && pw==dbPasswd;
+	} 
+	document.write(login("admin1", "1234"));
+	
+
+     
+		/* if (id==dbId && pw==dbPasswd) {
+		document.write(true); or return true;
+	} else {
+		document.write(false); or return false;
+	}
+} */
+	
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+</body>
+</html>

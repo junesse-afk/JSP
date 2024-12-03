@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	// [ Date 객체 ]
+	// - 날짜 및 시간 정보를 관리하는 객체
+	// - 다양한 메서드를 통해 날짜 및 시간 정보 처리 가능
+	// - new Date() 형식으로 Date 객체 생성하고, 메서드 호출을 통해 작업 수행
+	// --------------------------------------------------------
+	// 1. new Date() : 현재 시스템의 날짜 및 시간 정보 기준으로 Date 객체 생성
+	
+	let date1 = new Date();
+	document.write(date1 + "<br>");
+	// Mon Nov 18 2024 09:17:51 GMT+0900 (한국 표준시)
+	// -> 국제 엽정세계시(UTC) 기준 표준 표기법으로 출력되 ㄴ날짜 및 시간 형식
+	
+	// 2. new Date("yyyy-MM-dd")지정된 형식에 따른 날짜 정보 기준으로 Date 객체 생성
+	// -> 단, 날짜만 입력되므로 시간 정보는 0시 0분 0초로 설정되며 UTC 기준 시간으로 설정되어
+	//    한국 표준시로는 9시로 설정되어 있게 된다.
+	
+	let date2 = new Date("2000-01-01");
+	document.write(date2 + "<br");
+	// Sat Jan 01 2000 09:00:00 GMT+0900 (한국 표준시)
+	
+	// 3. new Date("yyyy-MM-ddThh:mm:ss") : 지정된 날짜 및 시간 기준 객체 생성
+	let date3 = new Date("2020-12-31T10:28:00");
+	document.write(date3 + "<br>");
+	document.write("<hr>");
+	//-----------------------------------------------------------
+	
+	//Date 객체에서 각각의 정보 추출하기(연, 월, 일, 시, 분, 초 등...)
+	// -> Date 객채의 getXXX() 메서드로 호출하여 각 정보 추출 가능
+	let now = new Date();
+// 	document.write("연도" + getFullyear() + "<br>");
+// 	document.write("월" + (getMonth() + 1) + "<br>");
+// 	document.write("일" + getDate() + "<br>");
+	
+	//getDaty() 메서드 : 요일을 0~6 사이의 정수값으로 관리
+	//(0:일요일 ~ 6:토요일)
+	document.write("요일" + now.getDay() + "<br>");
+	// -> 정수값으로 관리되므로 0~6사의 값을 비교하여 해당 요일을 ㅁ누자열로 출력!
+	
+	let a = now.getDay();
+	
+/* 	if (a == 0){
+		document.write("일요일<br>");
+	} else if (a == 1){
+		document.write("월요일<br>");
+	} */
+	
+	
+	// 반복 구문에서 스위치 케이스 활용 방법
+	
+	switch(a) {
+	case 0: document.write("일요일<br>"); break;
+	case 1: document.write("월요일<br>"); break;
+	case 2: document.write("화요일<br>"); break;
+	case 3: document.write("수요일<br>"); break;
+	case 4: document.write("목요일<br>"); break;
+	case 5: document.write("금요일<br>"); break;
+	case 6: document.write("토요일<br>"); break;
+	}
+	
+	// 시간 정보 (시, 분, 초) 추출
+	let hour = now.getHours();
+	let min = now.getMinutes();
+	let sec = now.getSeconds();
+	document.write("현재시간" + hour + "시" + min + "분" + sec + "초");
+	document.write("<hr>");
+	//-----------------------------------------------------------
+	// getTime() : 기준일시 (1970년 1월 1일 0시 0분 0초 = UTC기준) 기준으로
+	//			   지정된 날짜와의 차이를 밀리초 단위의 정수값을 리턴
+	
+	
+// 	let targetDate = new Date("1994-07-11T00:00:00");
+	let targetDate = new Date("2025-04-14T00:00:00");
+	
+	let nowTime = new Date().getTime();
+	let targetTime = targetDate.getTime();
+	
+	document.write("기준일자 : " + now + " => " + nowTime + "ms<br>");
+	document.write("대상일자 : " + targetDate + " => " + targetTime + "ms<br>");
+	
+	// [ D-Day 계산 원리]
+	// 두 날짜간의 차이 계산 => 기준일자 = 대상일자
+	// 1) 결과가 양수 : 기준일자가 대상일자보다 큼(=기준일자보다 과거 = XX경과)
+	// 2) 결과가 음수 : 기준일자가 대상일자보다 작음(=기준일자보다 과거 = XX남음)
+	// 3) 결과가 0 : 기준일자가 대상일자와 동일(=지금)
+	
+	let diffTime = (now.Time - targetTime) / 1000 / 60 / 60 / 24;
+	document.write("두날짜의 차" + diffTime + "ms<br>");
+	//-------------------------------------------------------------
+	
+	//소수점(실수 부분) 절삭(반올림)을 위해 Math객체의 round()메서드 활용
+	diffTime = Math.round(diffTime);
+	document.write("두날짜의 차(정수화)" + diffTime + "ms<br>");
+	
+	// 두 날짜의 차에 따른 현재 상태 출력(xx일 지났습니다 or xx일 남았습니다 or D-Day)
+	
+	if (diffTime > 0) {
+		document.write(diffTime + "일 지났습니다.<br>");
+	} else if (diffTime < 0) {
+// 		document.write(diffTime + "일 남았습니다.<br>");
+		document.write(Math.abs(diffTime)+"일 남았습니다.<br>");
+	} else {
+		document.write("D-Day!<br>");
+	}
+	
+</script>
+
+
+</head>
+<body>
+
+
+
+
+</body>
+</html>

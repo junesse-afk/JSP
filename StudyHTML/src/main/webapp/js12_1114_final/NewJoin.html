@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function nmcheck() {
+		let nm = document.getElementById('name').value;
+		let nmcheck = document.querySelector('#checkNmResult');
+		nmcheck.innerHTML = nm;
+	
+		if (nm == "") {
+		nmcheck.innerHTML = "공백 없이 사용해주세요"
+		nmcheck.style.color = "RED";
+		}
+	}
+
+
+
+	function idcheck() {
+		
+		let id = document.querySelector('#id1').value;
+		let idcheck = document.querySelector('#checkIdResult');
+		idcheck.innerHTML=id;
+		
+		if (id.length < 4 || id.length > 16){
+			idcheck.innerHTML = "4자 이상 16자 이하만 사용 가능합니다";
+			idcheck.style.color = "RED";
+		} else if (id == 'admin') {
+			idcheck.innerHTML = "아이디가 중복됩니다";
+			idcheck.style.color = "RED";
+		} else {
+			idcheck.innerHTML = "아이디 사용가능합니다";
+			idcheck.style.color = "BLUE";
+		}
+	}
+	
+	function pwwcheck() {
+		let pwb = document.getElementById('pw1').value;
+		let bpcheck = document.querySelector('#checkPwResult2');
+		bpcheck.innerHTML=pwb;
+		
+		if (pwb.length < 4){
+			bpcheck.innerHTML = "4자리 이상 사용 가능합니다";
+			bpcheck.style.color = "RED";
+		} 
+		
+	}
+	
+	function pwcheck() {
+		let pwss = document.getElementById('pw2').value;
+		let pwcheck = document.querySelector('#checkPwResult');
+		pwcheck.innerHTML=pwss;
+		
+		if (pwss.length < 4){
+			pwcheck.innerHTML = "4자리 이상 사용 가능합니다";
+			pwcheck.style.color = "RED";
+		} else if (pws == pwss) {
+			pwcheck.innerHTML = "사용 가능한 비밀번호입니다";
+			pwcheck.style.color = "BLUE";
+		} else {
+			pwcheck.innerHTML = "비밀번호가 틀립니다";
+			pwcheck.style.color = "RED";
+		}
+	}
+
+	
+	function jmcheck() {
+		let jm = document.getElementById('jumin1').value;
+		let jjm = document.getElementById('jumin2');
+		let jmcheck = document.querySelector('#checkJmResult');
+		jmcheck.innerHTML=jm;
+		
+		if (jm.length == 6){
+			jjm.focus();
+			jmcheck.innerHTML = "6자리 이상 사용 가능합니다";
+			jmcheck.style.color = "RED";
+		}
+		
+	}
+	
+	function jjmcheck() {
+		let jjm = document.getElementById('jumin2').value;
+		
+		if (jjm.length == 7) {
+			document.getElementById('jumin2').blur();
+		}
+	}
+
+	
+	function micheck(){
+		let mi = document.fr.mail2.value;
+		let mi2 = document.fr.mm;
+		
+			if (mi ==""){
+				mi2.value = mi;
+				mi2.readOnly = false;
+				mi2.style.background ="WHITE";
+			}	else {
+					mi2.readOnly = true;
+					mi2.value = mi;
+					mi2.style.background = "gray";
+				}
+	}
+	
+	function mminput() {
+		let aa = document.querySelector('aa');
+		let mi2 = document.fr.mm;
+		
+		if (m12 == aa) {
+			mi2.input();
+		}
+	}
+	
+	function mmcheck() {
+		let mi3 = document.fr.m1.value;
+		let mmcheck = document.querySelector('#checkMmResult');
+		mmcheck.innerHTML = mi3;
+		
+		if (mi3 == "") {
+			mmcheck.innerHTML = "이메일을 입력해주세요";
+		} else {
+			mmcheck.innerHTML = "";
+		}
+	}
+	
+	window.onload = function () {
+		let hob = document.querySelector('#ckall');
+			hob.addEventListener("change", function (e) {
+				let hoo = document.fr.cc;
+				let checked = false;
+				
+				for(i=0; i<hoo.length; i++){
+					if (e.target.checked){
+						hoo[i].checked=true;
+					}else {
+						hoo[i].checked=false;
+					}
+				}
+				
+			});
+	}		
+			function changeImg() {
+				let img = document.querySelector('#img');
+				img.src="../images/2.jpg";
+				}
+
+			
+	function dateform() {
+		let name = document.fr.name.value.trim();
+		let id = document.fr.id.value.trim();
+		let pas = document.fr.pas.value.trim();
+		let cpas = document.fr.cpas.value.trim();
+		let jumin = document.fr.jumin.value.trim();
+		let add = document.fr.add.value.trim();
+		let mail = document.fr.mail.value.trim();
+		
+		if (!name) {
+		    alert('이름을 입력해주세요.');
+		    fr.name.focus();
+		    return false;
+		}
+		if (!id) {
+			alert('아이디를 입력해주세요.');
+			fr.id.focus();
+			return false;
+		}
+		if (!pas) {
+			alert('비밀번호를 입력해주세요.');
+			fr.pas.focus();
+			return false;
+		}
+		if (!cpas) {
+			alert('비밀번호 확인을 해주세요.');
+			fr.pas.focus();
+			return false;
+		}
+		if (!jumin) {
+			alert('주민번호를 입력해주세요.');
+			fr.jumin.focus();
+			return false;
+		}
+		if (!add) {
+			alert('주소를 입력해주세요.');
+			fr.add.focus();
+			return false;
+		}
+		if (!mail) {
+			alert('메일을 입력해주세요.');
+			fr.mail.focus();
+			return false;
+		}
+		alert('회원가입이 완료되었습니다!');
+	    return true;
+	}
+</script>
+
+</head>
+<body>
+
+<h1>회원가입</h1>
+<form action="newjoin.html" id="signup" name="fr" onsubmit="dateform()">
+	<table>
+		<tr>
+		<th><hr>이름<hr></th>
+			<td><hr><input type="text" id="name" placeholder="" name="name" onblur="nmcheck()">
+			<div id="checkNmResult"></div>
+			<hr>
+			</td>
+			<td rowspan="3"><img src="../images/rabbit.png" id="img" width="100">
+			<input type="button" value="이미지 변경" onclick="changeImg()">
+			</td>
+		</tr>
+		<tr>
+		<th><hr>아이디<hr></th>
+			<td><hr>
+			<input type="text" id="id1" name="id" placeholder="" onblur="idcheck()">
+			<a href=".check_id.html">
+			<input type="button" value="아이디 중복 확인"></a>
+			<span id="checkIdResult"></span>
+			<hr>
+			</td>
+		</tr>
+		<tr>
+			<th><hr>비밀번호<hr></th>
+			<td><hr><input type="password" id="pw1" name="pas" placeholder="" onkeyup="pwwcheck()">
+			<span id="checkPwResult2"></span></td>
+		</tr>
+		<tr>
+		<th><hr>비밀번호 확인<hr></th>
+			<td><input type="password" id="pw2" name="cpas" placeholder="" onkeyup="pwcheck()">
+			<span id="checkPwResult"></span>
+			<hr>
+			</td>
+		</tr>
+		<tr>
+		<th><hr>주민번호<hr></th>
+		<td><hr><input type="text" id="jumin1" name="jumin" onkeyup="jmcheck()">-<input type="password" id="jumin2" onkeyup="jjmcheck()">
+		<div id="checkJmResult"></div>
+		<hr>
+		</td>
+		<tr>
+		<th>주소</th>
+		<td><hr><input type="text" name="add"><a href =".search_address.html"><input type="button" value="주소검색"></a>
+		<br><input type="text"><br><input type="text">
+		<hr>
+		</tr>
+		<tr>
+		<th>이메일</th>
+		<td><hr><input type="text" id="m1" name="mail" onblur="mmcheck()">@
+				<input type="text" name="mm">
+				<select id="mail2" onchange="micheck()">
+					<option value="">직접 입력</option>
+					<option>naver.com</option>
+					<option>gmail.com</option>
+					<option>nate.com</option>
+				</select>
+				<div id="checkMmResult"></div>
+				<hr>
+		</td>
+		</tr>
+		<tr>
+		<th>성별</th>
+		<td><hr><input type="radio" id="man" name="fm" value="남자" required="required"><label for=man>남자</label>
+		<input type="radio" id="woman" name="fm" value="여자"><label for=woman>여자</label>
+		<hr>
+		</td>
+		</tr>
+		<tr>
+		<th>분류</th>
+		<td><hr><input type="checkbox" name="cc" value="JAVA">JAVA
+		<input type="checkbox" name="cc" value="DB">DB
+		<input type="checkbox" name="cc" value="HTML">HTML
+		<input type="checkbox" id="ckall" name="allcheck">전체선택
+		<hr>
+		</td>
+		</tr>
+		<tr>
+		<th>가입동기</th>
+		<td colspan="7"><textarea cols="60" rows="10"></textarea></td>
+		</tr>
+</table>
+</form>
+		<input type="button" value="가입완료" onclick="dateform()">
+		<input type="reset" value="초기화">
+		<a href="NewJoin.html"><input type="button" value="돌아가기">
+		</a>
+
+</body>
+</html>

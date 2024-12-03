@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// 	[배열 Array]
+// 	하나의 변수에 여러 데이터를 저장하기 위함.
+// 	자바의 배열과 달리 다른 데이터타입들 끼리도 저장 가능
+// 	배열명(변수명)을 사용하여 여러 데이터 관리 가능
+	
+// 	<기본 문법>
+// 	let arr =[데이터1, 데이터2, ..., 데이터n]
+	
+// 	int[] arr = {10, 20, 30, 40 ,50}
+// 	let arr = [10, 20, "asd, "sss"];
+/* 		
+	let name0 = "이재준";
+	let name1 = "XXX";
+	let name2 = "OOO";
+	let name3 = "aaa";
+	let name4 = "bbb";
+	
+// 	console.log("name0 = " + name);
+// 	console.log("name1 = " + name1);
+// 	console.log("name2 = " + name2);
+// 	console.log("name3 = " + name3);
+// 	console.log("name4 = " + name4);
+
+// 	배열이 없으면 반복문을 통해 여러 변수의 이름을 출력하는건 불가능!
+	for (let i = 0; i < 5; i++){
+		console.log("name" + i +" = " + name); 
+	}*/
+
+//--------------------------------------------------------
+
+	let arr = ["홍길동", "이순신", "강감찬","이재준","김구","AAA", "BBB"]
+//	let[0] "홍길동"
+//	let[1] "이순신"
+//  console.log("name = "+arr[0]");
+//  console.log("name = "+arr[1]");
+//  console.log("name = "+arr[2]");
+//  console.log("name = "+arr[3]");
+//  console.log("name = "+arr[4]");
+//  console.log("name = "+arr[5]"); 아래 for문 처럼으로 변경
+//	배열을 생성하면 자동으로 인덱스 번호가 부여됨 (0부터 시작)
+//	배열 내에 자동으로 부여되는 번호(인덱스 index)를 사용하여 배열의 각 요소 접근 가능
+	
+	for (let i = 0; i<5; i++){
+		console.log("name = "+arr[i]);
+	}console.log("---------------------------");
+
+//	배열 크기는 배열명.length 속성을 통해 얻을 수 있음
+
+	for (let i = 0; i < arr.length; i++){
+		console.log("name = "+arr[i]);
+	}console.log("---------------------------");
+//	자바스크립트의 배열은 자바의 배열과 달리 크기 변경이 가능
+// 	빈배열을 만들고 존재하지 않는 인덱스 번호를 지정해 데이터 저장 가능(자바에서는 불가능)
+
+//	자바 > int[] arr = new int[3]; > 배열 최초 생성 시 크기를 반드시 지정해야함!(크기고정)
+//	arr[0] = 10;
+// 	arr[3] = 30; // 인덱스 범위를 벗어나기 때문에 접근불가!
+
+	let arr2 = [];
+	arr2[0] = "이순신";
+	arr2[1] = "홍길동";
+	arr2[2] = "강감찬";
+
+	for (let i=0; i < arr2.length; i++){
+		console.log(arr2[i]);
+	}console.log("---------------------------");
+	
+//  배열(arr2)에 "이재준" 데이터 추가
+//  배열 마지막에 인덱스르 구해서 데이터를 추가해야함 (arr2.length)
+		arr2[arr2.length]="이재준";
+		console.log(arr2);
+		
+//	배열의 인덱스 없이 배열에 데이터 추가하는 방법 (push() 함수 활용)
+		arr2.push("정지윤");
+		console.log(arr2);
+
+// 배열의 마지막 요소를 제거하는 방법 (pop() 함수 활용 - 맨마지막꺼만 삭제)
+		arr2.pop();
+		console.log(arr2);
+		console.log("---------------------------");
+		
+// 배열은 참조 데이터 타입이다.
+		let arr3 = [10, 20, 30];
+		console.log(arr3);
+
+		let aNum = 10;
+		let bNum =20;
+		bNum = aNum; //10
+		
+		let aArr = [1,2,3];
+		let bArr = [4,5,6];
+		let cArr = [7,8,9];
+		
+		aArr = bArr; // bArr이 가리키는 4,5,6공간의 주소값을 aArr변수에 저장
+		// 이때 aArr이 가르키는 1,2,3 공간은 더이상 아무도 참조하지 않는 상태가 됨.
+		// 따라서, 더 이상 참조되지 않는 힙 공간의 영역은 가비지 컬렉터(G.C)에 의한 정리 대상이 됨.
+		// 즉, 쓸모없는 공간은 메모리 확보를 위해 자동으로 제거됨.
+		
+		bArr = cArr; // cArr이 가리키는 7,8,9 공간의 주소값을 bArr 변수에 저장
+		// 이때, bArr이 가르키는 4,5,6 공간은 더이상 aArr이 참조하고 있으므로
+		// 가비지 컬렉터에 의한 제거 대상이 아니다!
+		
+		//배열 복사본 생성하는 방법
+		let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+		//1.slice()함수 (원래 용도는 배열의 일부분을 추출하여 새로운 배열 생성하는 함수)
+		// ex) slice(4, 6); -> [5, 6]
+		let copy = array.slice(4, 9);
+		
+		copy[0] =100;
+		
+		console.log(array);
+		console.log(copy);
+		
+		//2. spread 연산자
+		let copy2 = [...array];
+		copy2[0]=100;
+		console.log(array);
+		console.log(copy2);
+		
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+/*
+
+* HTML 태그에서 onXXX 속성을 활용하여 이벤트 연결이 가능하지만
+* 자바스크립트에서도 대상 요소에 대해 이벤트 연결이 가능하다!
+* 
+* -> 기본문법 : 대상요소객채명.onXXX = 실행할 함수명 예시 window.onload = imgchage;
+* -> 주의 실행할 함수 전달 시 소괄호()는 기술하지 않는다.(즉시 실행되기 때문에)
+* 
+* 1. window 객체의 onload 이벤트 발생 시 별도로 함수를 정의하고 해당 이름을 전달하는 어쩌구저꾸
+* 
+*
+*
+*/
+// 	function changeImg() {
+// 		document.querySelector('#img').src="../images/2.jpg";
+// 	}
+// 	window.onload = changeImg;
+	
+/* 
+
+*함수 전달 위치 onload 이벤트 우변에 "익명함수 형태로 직접 정의하는 방버
+*
+*->익명함수 정의 기본 문법 : function name() {
+	
+	}
+* -> 객채명.onXXX = function name() {
+	
+	}
+*
+* func 뒤에 네임이 익명일시 () => {} 형태로 표현 가능
+*
+*
+*
+*/
+	window.onload = () => {
+		document.querySelector('#img').src="../images/3.jpg";
+	}
+
+</script>
+
+
+</head>
+<body>
+
+	<h1>Test30.html</h1>
+	<img src="../images/1.jpg" id="img" width="200" height="150">
+	
+	
+</body>
+</html>

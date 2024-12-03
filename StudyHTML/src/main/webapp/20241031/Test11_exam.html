@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ <table border="1">
+ 	<tr>
+ 		<th colspan="10">테이블연습</th>
+ 	</tr>
+ 	<tr>
+ 		<td>1</td>
+ 		<td>2</td>
+ 		<td>3</td>
+ 		<td>4</td>
+ 		<td>5</td>
+ 		<td>6</td>
+ 		<td>7</td>
+ 		<td>8</td>
+ 		<td>9</td>
+ 		<td>10</td> 	
+ 	</tr>
+ 	
+ 	<tr>
+ 	 <script>
+ 	for(let i =1; i<=10; i++){
+ 		document.write("<td>"+i+"</td>");
+ 		
+ 	}
+ 	</script>
+ 	</tr>
+ 	
+ 	<script>
+ 	let i2 =1;
+ 	while(i2<=10){
+ 		document.write("<td>"+i2+"</td>");
+ 		i2++;
+ 	}
+ 	</script>
+ 	<script>
+ 	//무한 루프
+ 	// for문 또는 while문에서, 조건식 true 지정 시 무한 반복을 수행하는 무한 루프 구현 가능
+ 	// 단 반복을 종료하려면 반복문 내에서 if문 등을 통해 등적 조건 만족 시
+ 	// break 문을 통해 반복문 종료 가능
+ 	//
+ 	while (true) {
+ 		// 값을 1개 입력 받아 변수
+ 		let inputData = prompt("값을 입력하세요 (exit 입력시 종료)");
+ 		console.log(inputData);
+ 		
+ 		if(inputDate == "exit"){
+ 			break;
+ 		}
+ 		
+ 	}
+ 	</script>
+ 	
+</table>
+</body>
+</html>

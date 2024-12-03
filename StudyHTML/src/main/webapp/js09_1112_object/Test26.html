@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+	[ form 태그 내의 각 요소에 접근하는 방법 ]
+*	1) 기존의 document.querySelector()메서드 등을 활용하여 해당 요소를 직접 지정하는 방법 또
+*	2) form 태그를 통해 폼 내의 요소에 접근하는 방법
+*		-document.form태그의name속성값. 접근할 태그의 name속성값.속성명 또는
+*		 document.form태그의name속성값. 접근할 태그의 name속성값.메서드명()
+*			=> 속성명 : name, type, value 등
+*			=> 메서드 : focus() - 대상 요소에 커서(포커스)요청
+*					blur() - 대상 요소에 커서(포커스) 해제
+*					select() - 대상 요소에 포커스 요청 및 입력 항목 블럭 지정
+*
+*
+*/
+
+function requestFocus () {
+	document.fr.text1.focus();
+}
+
+function requestSelect () {
+	document.fr.text1.select();
+}
+
+function showInfo (){
+	// 폼 태그 입력 데이터 (name 속성 text1, text2, ta)가져와서
+	// div 태그 영역 (id 속성 "inforArea")에 출력
+	// -> "text1: xxx"
+	// -> "text2: xxx"
+	// -> "ta: xxx"
+	
+	let text1 = document.fr.text1.value;
+	let text2 = document.fr.text2.value;
+	let ta = document.fr.ta.value;
+	
+	/* document.querySelector('#infoArea').innerHTML =
+		"text1: " + text1 + "<br>text2: " + text2 + "<br>ta: "+ ta; */
+	
+		//innerText 속성으로 데이터 출력시 <br>태그 대신 \n 활용 : 전부다 텍스로 변경되어서 그럼
+	document.querySelector('#infoArea').innerText =
+		"text1: " + text1 + "\ntext2: " + text2 + "\nta: "+ ta;
+}
+
+function check (){
+	// 폼 태그 입력 항목 중 입력되지 않은 항목 판별
+	// -> 기본적으로 submit 버튼과 입력 항목에 대한 required 속성 조합으로 간단하게 구현 가능하지만
+	// 		추가적인 작업(입력값 규칙 검증 등)을 수행할 경우
+	//		자바스크립트 함수를 통해 해당 작업 수행 가능
+	//--------------------------------------------
+	// [ 입력값 확인 - 텍스트가 입력되었는지만 확인]
+	// 1)입력 항목(value)이 널스트림("")인지 판별
+	// 2)입력 항목(value)의 문자열 길이(length)가 0인지 판별
+	// text1, text2, ta
+	
+	if (document.fr.text1.value.length == 0) {
+		alert("첫번째 텍스트 입력 필수!");
+		document.fr.text1.focus();
+	} else if (document.fr.text2.value == ""){
+		alert("두번째 텍스트 입력 필수!");
+		document.fr.text2.focus();
+	} else if (document.fr.ta.value == "") {
+		alert("세번째 텍스트 입력 필수!");
+		document.fr.ta.focus();
+	}else {
+	document.fr.submit();
+	}
+}
+// if ~~~~ return; 으로 뎁스를 줄일 수 있음
+
+</script>
+
+
+
+</head>
+<body>
+	<h1>Test26.html</h1>
+	<form action="test26_2.html" name="fr">
+	텍스트 <input type="text" name="text1" required>
+	<input type="button" value="focus()" onclick="requestFocus()">
+	<input type="button" value="select()" onclick="requestSelect()">
+	<br>
+	숨김텍스트 <input type="password" name="text2" required="required">	
+	<br>
+	멀티라인텍스트 <textarea rows="5" cols="20" name="ta"></textarea>
+	<br>
+	<br>
+	<input type="button" value="입력값 출력" onclick="showInfo()">
+	<input type="button" value="입력값 확인" onclick="check()">
+	<input type="submit" value="입력값 전송">
+	</form>
+	
+	<div id="infoArea"></div>
+
+</body>
+</html>

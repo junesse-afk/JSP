@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+/* 
+	[ 자바스크립트의 객체 ]
+*
+* - 자바스크립트 객체는 프로퍼티(속성)와 메서드(기능)로 구성됨
+*   => 프로퍼티 : 객체의 상태를 표현할 수 있는 값(= 변수처럼 사용)
+*   => 메서드 : 객체의 기능을 표현할 수 있는 코드들의 집합(= 함수처럼 사용)
+* - 최상위 객체는 window 객체이며, window 객체의 하위에 다양한 객체가 존재함
+* - 객체에 접근 시 "객체명.프로퍼티명" 또는 객체명.메서드명()" 형식으로 접근함
+*   단, window 객체의 프로퍼티 또는 메서드 접근 시 window. 생략 가능함
+*-----------------------------------------------------------
+*
+* [ window 객체의 구성 요소 ]
+*
+* 1)프로퍼티(=속성, =변수) window.변수명
+* => window.status, window.opener 등
+* 2)메서드(=기능, =함수) window.메서드명([전달인자...])
+* => widnow.open(), window.close()
+*
+* window 객체의 open() 메서드를 호출하여 새 창 열기
+* => 기본 문법 : window.open("새창에서 열 페이지", "창이름", "옵션") :
+*-----------------------------------------------------------
+* 새 창 열기 기능을 통해 test17.html 페ㅣ이지 열기
+*/
+//window.open("Test18_popup.html", "", "width=400, height=400");
+// -> 이 코드가 실행되는 시점에 test17.html 페이지가 새 창(새 탭)에 표시됨
+
+// 옵션 항목에 width, height 속성 지정 시 새 창의 크기 지정 가능
+//window.open("Test18_popup.html", "", "width=400, height=400, top=200, left=800");
+// => Test18_popup.html 페이지의 내용이 표시됨
+// 창의 크기가 지정되었으므로 별도의 새창으로 열림
+//-----------------------------------------------------------
+//만약, 웹브라우저 팝업 차단 기능으로 인해 새창 열기 기능이 차단될 경우
+//브라우저 자체의 팝업 차단 기능을 해제하거나 팝업 허용 사이트로 등록하면 되지만
+//사용자에게 팝업 차단 해제 요청 메세지를 출력해서 팝업 허용을 요청할 수 있음
+//
+
+/* let newPopup = window.open("Test18_popup.html", "", "width=400, height=400, top=200, left=800");
+console.log(newPopup); */
+
+// => 새 창이 열리면 해당 새 창을 관리하는 windwo 객체가 newPopup 변수에 저장됨
+// => 만약, 팝업 차단으로 인해 새창이 열리지 않으면 객체가 생성되지 않으므로 null 값이 저장됨
+
+/* if (newPopup == null) {
+	alert("팝업차단됨.\n팝업 차단을 해제해 주세요!")
+} */
+
+// if (!newPopup) 해도됨 null = false라서 반대로 작성
+
+</script>
+
+</head>
+<body>
+
+
+<h1>Test18.html - window 객체</h1>
+<input type="text" placeholder="주소입력">
+<input type="button" value="주소검색" onclick="newWindow()">
+<input type="button" value="창 닫기" onclick="closeWindow()">
+<input type="button" value="아이이티윌 홈페이지" onclick="newWindow2()">
+<script type="text/javascript">
+
+function newWindow(){
+// 	window.open("Test18_popup2.html", "", "width=400, height=400, top=200, left=800");	
+	// 버튼 클릭할 때마다 새창에서 test18_popup2.html 파일이 열림(매번 새창 열림)
+	// 만약 버튼 클릭 시 기존에 열려 있는 주소검색창이 있을 경우
+	// 새로운 주소검색창을 열지 않도록 하려면 창이름 옵션을 설정하면 된다.
+	// 새창 열때 창이름 옵션에 지정된 이름과 동일한 새창이 열려 있을 경우
+	// 새창 내용을 열려있는 창에 표시
+	// 동일한 이름의 페이지가 아니라 완전 다른 페이지더라도 창이름이 동일하면
+	// 같은 새창에 내용만 바뀜
+	window.open("Test18_popup2.html", "address_window", "width=400, height=400, top=200, left=800");
+
+}
+
+function newWindow2(){
+	window.open("http://www.itwillbs.co.kr", "new_window", "width=400, height=400, top=200, left=800");
+	
+}
+
+function closeWindow(){
+	//현재 창을 닫고 종료하시겠습니까? 질문을 통해
+	//사용자로부터 확인, 취소 버튼을 선택받아
+	//확인 버튼이 클릭되었을 경우 현재 창 닫기 작업 수행
+	let result = confirm("현재 창을 닫고 종료하시겠습니까?");
+	if (result){
+		window.close();
+	}
+}
+
+</script> 
+
+
+</body>
+</html>
