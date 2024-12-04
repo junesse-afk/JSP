@@ -7,8 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
 	<h3><a href="main.pr">상품</a></h3>
+	<hr>
+	<h3><a href="main.js">상품2</a></h3>
+
 
 	<h1>index.jsp</h1>
 

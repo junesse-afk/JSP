@@ -34,7 +34,7 @@
 				<%-- 상품삭제 버튼 클릭 시 "ProductDelete.pr" 서블릿 주소 요청 --%>
 				<%-- => URL 파라미터로 상품번호 전달 --%>
 				<input type="button" value="상품삭제" 
-						onclick="location.href='ProductDelete.pr?product_id=${ProductDetail.product_id}'">
+						onclick="location.href='ProductDelete.js?product_id=${ProductDetail.product_id}'">
 				<input type="button" value="이전페이지" onclick="history.back()">
 			</td>
 		</tr>
